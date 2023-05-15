@@ -20,8 +20,8 @@ Employee.prototype.jobGreet = function () {
 	console.log(`Hello, my name is ${this.Name}, I am ${this.Age} years old, and my job title is ${this.JobTitle}.`)
 }
 
-console.log(E1.greet()) 
-console.log(E1.jobGreet()) 
+E1.greet()
+E1.jobGreet()
 
 
 // Do not change code below this line
