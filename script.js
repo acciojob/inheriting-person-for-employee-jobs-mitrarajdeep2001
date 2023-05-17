@@ -1,27 +1,37 @@
-// complete this js code
+// Person constructor function
 function Person(name, age) {
-	this.Name = name
-	this.Age = age
+  this.name = name;
+  this.age = age;
 }
 
+// Method added to the Person prototype
 Person.prototype.greet = function () {
-	console.log(`Hello, my name is ${this.Name}, I am ${this.Age} years old.`)
-}
+  console.log(`Hello, my name is ${this.name}, I am ${this.age} years old.`);
+};
 
+// Employee constructor function
 function Employee(name, age, jobTitle) {
-	this.Name = name
-	this.Age = age
-	this.JobTitle = jobTitle
+  Person.call(this, name, age);
+  this.jobTitle = jobTitle;
 }
 
-Employee.prototype = Object.create(Person.prototype)
-// const E1 = new Employee('Rajdeep', '22', 'SDE')
+// Inherit the Person prototype in the Employee prototype
+Employee.prototype = Object.create(Person.prototype);
+Employee.prototype.constructor = Employee;
+
+// Method added to the Employee prototype
 Employee.prototype.jobGreet = function () {
-	console.log(`Hello, my name is ${this.Name}, I am ${this.Age} years old, and my job title is ${this.JobTitle}.`)
-}
+  console.log(`Hello, my name is ${this.name}, I am ${this.age} years old, and my job title is ${this.jobTitle}.`);
+};
 
-// E1.greet()
-// E1.jobGreet()
+// Example usage
+// const person1 = new Person('John', 30);
+// person1.greet(); // Output: Hello, my name is John, I am 30 years old.
+
+// const employee1 = new Employee('Alice', 25, 'Developer');
+// employee1.greet(); // Output: Hello, my name is Alice, I am 25 years old.
+// employee1.jobGreet(); // Output: Hello, my name is Alice, I am 25 years old, and my job title is Developer.
+
 
 
 // Do not change code below this line
